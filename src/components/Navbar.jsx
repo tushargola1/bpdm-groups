@@ -43,6 +43,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the navbar when a link is clicked
+  };
+
   return (
     <>
       {/* Navbar & Hero Start  */}
@@ -56,16 +60,16 @@ const Navbar = () => {
           </button>
           <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarCollapse">
             <div className="navbar-nav ms-auto py-0">
-              <Link to={'/'} className={`nav-item nav-link ${activeLink === '/' ? 'active' : ''}`}>Home</Link>
-              <Link to={'/about'} className={`nav-item nav-link ${activeLink === '/about' ? 'active' : ''}`}>About</Link>
+              <Link to={'/'} className={`nav-item nav-link ${activeLink === '/' ? 'active' : ''}`} onClick={handleLinkClick}>Home</Link>
+              <Link to={'/about'} className={`nav-item nav-link ${activeLink === '/about' ? 'active' : ''}`} onClick={handleLinkClick}>About</Link>
               <div className="nav-item dropdown">
-                <a href="#" className={`nav-link dropdown-toggle ${activeLink.startsWith('/services') ? 'active' : ''}`} data-bs-toggle="dropdown">Services</a>
+                <a href="#" className={`nav-link dropdown-toggle ${activeLink.startsWith('/services') ? 'active' : ''}`} data-bs-toggle="dropdown" onClick={handleLinkClick}>Services</a>
                 <div className="dropdown-menu m-0">
-                  <Link to="/services/bpdm-projects" className={`dropdown-item ${activeLink === '/services/bpdm-projects' ? 'active' : ''}`}>Bpdm Projects</Link>
+                  <Link to="/services/bpdm-projects" className={`dropdown-item ${activeLink === '/services/bpdm-projects' ? 'active' : ''}`} onClick={handleLinkClick}>Bpdm Projects</Link>
                 </div>
               </div>
-              <Link to="/projects" className={`nav-item nav-link ${activeLink === '/projects' ? 'active' : ''}`}>Projects</Link>
-              <Link to="/contact" className={`nav-item nav-link ${activeLink === '/contact' ? 'active' : ''}`}>Contact</Link>
+              <Link to="/projects" className={`nav-item nav-link ${activeLink === '/projects' ? 'active' : ''}`} onClick={handleLinkClick}>Projects</Link>
+              <Link to="/contact" className={`nav-item nav-link ${activeLink === '/contact' ? 'active' : ''}`} onClick={handleLinkClick}>Contact</Link>
             </div>
             <Link to="/contact" className="btn btn-primary rounded-pill py-2 px-4">Get in touch</Link>
           </div>
